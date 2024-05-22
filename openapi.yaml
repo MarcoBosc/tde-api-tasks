@@ -2,14 +2,27 @@ openapi: 3.0.0
 info:
   title: TDE TASKS API - Java com Springboot 
   version: 1.0.0
+  description: >
+    Esta API foi criada utilizando Java com o framework Spring Boot, proporcionando uma arquitetura robusta e escalável. 
+    O banco de dados H2 foi escolhido por ser leve e ideal para desenvolvimento e testes rápidos, facilitando a manipulação de dados temporários. 
+    O projeto visa gerenciar tarefas, permitindo a criação, atualização, deleção e marcação de tarefas como concluídas. 
+    Para mais detalhes e para acessar o código-fonte completo, visite o repositório no GitHub: 
+    [tde-api-tasks](https://github.com/MarcoBosc/tde-api-tasks).
+tags:
+  - name: Tasks
+    description: Gerencie suas tarefas
 paths:
   /tasks:
     get:
+      tags:
+        - Tasks
       summary: Retrieve all tasks
       responses:
         '200':
           description: Successful operation
     post:
+      tags:
+        - Tasks
       summary: Create a new task
       requestBody:
         required: true
@@ -39,6 +52,8 @@ paths:
         schema:
           type: integer
     put:
+      tags:
+        - Tasks
       summary: Update an existing task
       requestBody:
         required: true
@@ -61,6 +76,8 @@ paths:
         '200':
           description: Successful operation
     delete:
+      tags:
+        - Tasks
       summary: Delete a task
       responses:
         '200':
@@ -73,6 +90,8 @@ paths:
         schema:
           type: integer
     put:
+      tags:
+        - Tasks
       summary: Mark a task as done
       responses:
         '200':
