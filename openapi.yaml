@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: TDE TASKS API - Java com Springboot 
+  version: 1.0.0
+paths:
+  /tasks:
+    get:
+      summary: Retrieve all tasks
+      responses:
+        '200':
+          description: Successful operation
+    post:
+      summary: Create a new task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                descricao:
+                  type: string
+                dataCriacao:
+                  type: string
+                  format: date-time
+                dataLimite:
+                  type: string
+                  format: date-time
+                finalizada:
+                  type: boolean
+      responses:
+        '200':
+          description: Successful operation
+  /tasks/{taskId}:
+    parameters:
+      - name: taskId
+        in: path
+        required: true
+        schema:
+          type: integer
+    put:
+      summary: Update an existing task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                descricao:
+                  type: string
+                dataCriacao:
+                  type: string
+                  format: date-time
+                dataLimite:
+                  type: string
+                  format: date-time
+                finalizada:
+                  type: boolean
+      responses:
+        '200':
+          description: Successful operation
+    delete:
+      summary: Delete a task
+      responses:
+        '200':
+          description: Successful operation
+  /tasks/{taskId}/done:
+    parameters:
+      - name: taskId
+        in: path
+        required: true
+        schema:
+          type: integer
+    put:
+      summary: Mark a task as done
+      responses:
+        '200':
+          description: Successful operation
